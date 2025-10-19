@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>天理劫：兴贤书院谜案 - 沉浸式解谜体验</title>
-    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 设置 Tailwind 配置，使用一个古风字体和颜色 -->
     <script>
         tailwind.config = {
             theme: {
@@ -84,13 +82,10 @@
 </head>
 <body class="bg-wood-dark min-h-screen font-serif flex justify-center items-center py-8 px-4">
 
-    <!-- 主游戏容器 - 模拟展开的卷轴/书页 -->
     <div id="game-container" class="w-full max-w-6xl h-[90vh] bg-paper shadow-scroll rounded-xl overflow-hidden flex flex-col md:flex-row">
 
-        <!-- 故事和互动区 (左侧主区域) -->
         <div id="story-panel" class="md:w-3/5 w-full h-1/2 md:h-full p-8 overflow-y-auto hide-scrollbar relative">
             
-            <!-- 场景回溯按钮 -->
             <button id="back-button" class="absolute top-4 left-4 z-10 gufu-btn px-3 py-1 text-base hidden" onclick="goBack()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd" />
@@ -98,47 +93,33 @@
                 故事回溯
             </button>
             
-            <!-- 主内容标题 -->
             <h1 class="text-4xl font-display text-center text-accent-red mb-6 border-b-2 border-accent-red/50 pb-3">
                 天理劫：兴贤书院谜案
             </h1>
 
-            <!-- 故事内容渲染区 -->
             <div id="story-text" class="story-content transition-opacity duration-500">
-                <!-- 故事内容将由 JavaScript 渲染 -->
-            </div>
+                </div>
 
-            <!-- 谜题互动区 -->
             <div id="interaction-area" class="mt-8 border-t border-ink/20 pt-6">
-                <!-- 谜题元素将由 JavaScript 渲染 -->
-            </div>
+                </div>
             
-            <!-- 场景切换按钮 -->
             <div id="scene-nav" class="mt-10 flex justify-center space-x-4">
-                <!-- 导航按钮将由 JavaScript 渲染 -->
-            </div>
+                </div>
         </div>
 
-        <!-- 导航与历史区 (右侧侧边栏) -->
         <div class="md:w-2/5 w-full h-1/2 md:h-full bg-wood-dark/10 p-6 overflow-y-auto hide-scrollbar flex flex-col space-y-6 border-l border-wood-dark/30">
 
-            <!-- 侧边栏顶部切换 -->
             <div class="flex justify-between space-x-2 mb-4">
-                <!-- 恢复为通用导航按钮，但点击后只显示TOC -->
-                <button class="gufu-btn flex-1 text-sm px-4 py-2" onclick="toggleSidebar('toc')">章节导航</button>
+                <button id="toc-toggle" class="gufu-btn flex-1 text-sm px-4 py-2" onclick="toggleSidebar('toc')">章节导航</button>
                 <button id="history-toggle" class="gufu-btn flex-1 text-sm px-4 py-2 opacity-70" onclick="toggleSidebar('history')">行动轨迹</button>
             </div>
 
-            <!-- 章节导航图/列表 -->
             <div id="sidebar-toc" class="space-y-3">
                 <h2 class="text-xl font-display text-ink border-b border-ink/30 pb-2 mb-3">故事地图（流程）</h2>
-                <!-- 导航列表将在此渲染 -->
-            </div>
+                </div>
 
-            <!-- 行动历史记录 -->
             <div id="sidebar-history" class="space-y-2 hidden">
                 <h2 class="text-xl font-display text-ink border-b border-ink/30 pb-2 mb-3">历史记录</h2>
-                <!-- 历史记录将在此渲染 -->
                 <div id="history-list" class="text-sm text-ink/80 space-y-1">
                     <p>旅程伊始...</p>
                 </div>
@@ -177,7 +158,7 @@
             title: "天理劫：兴贤书院谜案",
             content: `
                 <h2 class="text-center font-display text-2xl font-bold mb-6 text-accent-red">序章：风雪五夫·道统飘零</h2>
-                <p><strong>故事背景：</strong>南宋庆元年间，五夫古镇中的兴贤书院，曾是朱熹讲学授道之所。然而，庆元二年，朝中风波骤起，理学被斥为“伪学”，朱子之学遭严禁。更致命的是， 朱熹《四书章注》的手稿，竟在混乱中离奇失窃。</p>
+                <p><strong>故事背景：：</strong>南宋庆元年间，五夫古镇中的兴贤书院，曾是朱熹讲学授道之所。然而，庆元二年，朝中风波骤起，理学被斥为“伪学”，朱子之学遭严禁。更致命的是， 朱熹《四书章注》的手稿，竟在混乱中离奇失窃。</p>
                 <p><strong>你是谁：：</strong>你叫 <strong>陈观理</strong>，25岁，兴贤书院学子，沉着冷静，善于观察，深受朱熹影响。</p>
                 <p>你身负恩师信念，收到密信，毅然踏入这迷局之中。你必须找回这份珍贵的手稿，洗刷泼向师门的污名，为乱世守住最后一点光明。</p>
                 <p>墨卷无声，正道存心；书院深处，等你寻踪。</p>
@@ -381,6 +362,8 @@
         renderTOC();
 
         // 绑定切换事件
+        // 重新获取 toc-toggle 元素
+        document.getElementById('toc-toggle').addEventListener('click', () => toggleSidebar('toc'));
         document.getElementById('history-toggle').addEventListener('click', () => toggleSidebar('history'));
     }
 
@@ -417,7 +400,8 @@
         }
 
         // 4. 渲染导航按钮 (如果谜题未渲染，则显示普通导航)
-        if (!scene.render || interactionArea.innerHTML === '') {
+        // 注意：点位1 (dot1_ritual) 的下一步按钮由谜题函数负责渲染
+        if (!scene.render || (interactionArea.innerHTML === '' && sceneId !== 'dot1_ritual')) {
             if (scene.options) {
                 scene.options.forEach(option => {
                     const button = document.createElement('button');
@@ -502,7 +486,7 @@
 
         mapNodes.forEach(node => {
             const nodeIndex = storyPath.indexOf(node.scene);
-            const isCurrent = node.scene === currentScene;
+            const isCurrent = node.scene === currentScene || (nodeIndex !== -1 && currentPathIndex >= nodeIndex && currentPathIndex < storyPath.indexOf(mapNodes[mapNodes.indexOf(node) + 1]?.scene || 'epilogue'));
             const isCompleted = nodeIndex < currentPathIndex;
             const statusClass = isCurrent ? 'bg-accent-red active' : (isCompleted ? 'bg-green-600 completed' : 'bg-paper');
 
@@ -604,6 +588,7 @@
 
     /**
      * 点位1：簪花祈福仪式
+     * 已修改：将随机抽签改为玩家选择签文。
      */
     function renderZanhuaRitual() {
         const interactionArea = document.getElementById('interaction-area');
@@ -628,9 +613,10 @@
             `;
         }).join('');
 
+        // 按钮改为“完成仪式”
         const drawButton = `
-            <button id="draw-sign-btn" class="gufu-btn gufu-btn-primary mt-6" onclick="drawSign()" ${stepsComplete.every(s => s) ? '' : 'disabled'}>
-                抽签得训 (完成仪式后启用)
+            <button id="draw-sign-btn" class="gufu-btn gufu-btn-primary mt-6" onclick="showSignOptions()" ${stepsComplete.every(s => s) ? '' : 'disabled'}>
+                完成仪式，选择签筒
             </button>
         `;
 
@@ -639,29 +625,40 @@
             <div class="text-center mt-6" id="draw-sign-container">${drawButton}</div>
             <div id="sign-result" class="mt-6 text-center font-display text-lg text-green-700"></div>
         `;
+        
+        // 如果仪式已完成，则直接显示签文选项，覆盖按钮。
+        if (stepsComplete.every(s => s)) {
+            showSignOptions(true);
+        }
     }
 
-    // 处理仪式步骤点击
+    // 处理仪式步骤点击 (只修改最后的提示)
     window.handleRitualStep = (index) => {
         const scene = scenes['dot1_ritual'];
         let { step, stepsComplete, labels } = scene.state;
         const interactionArea = document.getElementById('interaction-area');
 
-        if (index === step && index < labels.length - 1) {
+        if (index === step) {
             stepsComplete[index] = true;
-            step++;
-            scene.state.step = step;
             
-            // 提示下一个步骤
-            const nextStepLabel = labels[step];
-            interactionArea.querySelector('#sign-result').innerHTML = `<p class="text-accent-red">✅ ${labels[index]} 礼成！<br>请进行下一步：【${nextStepLabel}】</p>`;
-            
-            // 如果是揖拜，则立即完成
-            if (step === labels.length - 1) {
-                 stepsComplete[step] = true;
+            if (index < labels.length - 1) {
+                step++;
+                scene.state.step = step;
+                // 提示下一个步骤
+                const nextStepLabel = labels[step];
+                interactionArea.querySelector('#sign-result').innerHTML = `<p class="text-accent-red">✅ ${labels[index]} 礼成！<br>请进行下一步：【${nextStepLabel}】</p>`;
+                
+                // 如果是揖拜，则立即完成
+                if (step === labels.length - 1) {
+                     stepsComplete[step] = true;
+                     scene.state.stepsComplete = stepsComplete;
+                     interactionArea.querySelector('#draw-sign-btn').disabled = false;
+                     interactionArea.querySelector('#sign-result').innerHTML = `<p class="text-green-700">🎉 揖拜先师，仪轨复原！请选择签筒。</p>`;
+                }
+            } else {
+                 // 最后一个步骤完成
                  scene.state.stepsComplete = stepsComplete;
-                 interactionArea.querySelector('#draw-sign-btn').disabled = false;
-                 interactionArea.querySelector('#sign-result').innerHTML = `<p class="text-green-700">🎉 揖拜先师，仪轨复原！请抽取签筒。</p>`;
+                 interactionArea.querySelector('#sign-result').innerHTML = `<p class="text-green-700">🎉 揖拜先师，仪轨复原！请选择签筒。</p>`;
             }
             
             renderZanhuaRitual();
@@ -669,28 +666,68 @@
             interactionArea.querySelector('#sign-result').innerHTML = '<p class="text-red-600">❌ 顺序有误！请依循仪轨步骤。</p>';
         }
     };
-
-    // 抽签（完成仪式后）
-    window.drawSign = () => {
+    
+    // 新增函数：显示三个签文选项
+    window.showSignOptions = (isInitialRender = false) => {
         const interactionArea = document.getElementById('interaction-area');
-        const signs = [
-            "勤学签：“读书之法，在循序而渐进，熟读而精思。——愿尔持之以恒，终有所成。”",
-            "静心签：“心不定，故见理不得。今而后，汝当静坐收心，涵养本原。”",
-            "弘志签：“立志不坚，终不济事。——愿尔胸怀大志，格物穷理。”"
-        ];
-        const randomSign = signs[Math.floor(Math.random() * signs.length)];
         
-        interactionArea.innerHTML = `
-            <div class="text-center p-6 bg-wood-dark/10 rounded-lg shadow-inner">
-                <p class="text-xl font-display text-accent-red mb-4">📜 所得签训</p>
-                <p class="text-ink text-lg">${randomSign}</p>
+        // 签文选项
+        const signs = [
+            { name: "勤学签", text: "读书之法，在循序而渐进，熟读而精思。——愿尔持之以恒，终有所成。", color: 'bg-blue-100/50 text-blue-700' },
+            { name: "静心签", text: "心不定，故见理不得。今而后，汝当静坐收心，涵养本原。", color: 'bg-purple-100/50 text-purple-700' },
+            { name: "弘志签", text: "立志不坚，终不济事。——愿尔胸怀大志，格物穷理。", color: 'bg-yellow-100/50 text-yellow-700' }
+        ];
+
+        const optionsHtml = signs.map((sign, index) => `
+            <button class="flex-1 gufu-btn flex-col items-center p-4 m-2 text-base ${sign.color}" 
+                    onclick="selectSign(${index}, '${sign.name}', '${sign.text.replace(/'/g, "\\'")}')">
+                <span class="text-xl font-display">${sign.name}</span>
+                <span class="text-xs opacity-80 mt-1">（点击选择此签）</span>
+            </button>
+        `).join('');
+        
+        // 如果是通过点击按钮进入，先清空按钮
+        if (!isInitialRender) {
+             document.getElementById('draw-sign-container').innerHTML = ''; 
+        }
+
+        // 插入选择区
+        let signOptionsArea = document.getElementById('sign-options-area');
+        if (!signOptionsArea) {
+             signOptionsArea = document.createElement('div');
+             signOptionsArea.id = 'sign-options-area';
+             signOptionsArea.className = 'mt-6 p-4 bg-wood-dark/10 rounded-lg shadow-inner';
+             interactionArea.appendChild(signOptionsArea);
+        }
+        
+        signOptionsArea.innerHTML = `
+            <p class="text-xl font-display text-accent-red mb-4 text-center">📜 请选择签筒，得获训诫</p>
+            <div class="flex justify-center flex-wrap">${optionsHtml}</div>
+            <div id="selected-sign-display" class="mt-4 text-center"></div>
+        `;
+    }
+
+    // 新增函数：玩家选择签文
+    window.selectSign = (index, name, text) => {
+        const signOptionsArea = document.getElementById('sign-options-area');
+        const selectedSignDisplay = document.getElementById('selected-sign-display');
+        
+        // 禁用所有选择按钮
+        document.querySelectorAll('#sign-options-area button').forEach(btn => btn.disabled = true);
+
+        // 显示结果
+        selectedSignDisplay.innerHTML = `
+            <div class="p-6 bg-green-100/50 rounded-lg shadow-inner mt-4">
+                <p class="text-xl font-display text-accent-red mb-4">🎉 恭得【${name}】！</p>
+                <p class="text-ink text-lg">${text}</p>
             </div>
         `;
+
         // 显示下一步按钮
         const sceneNav = document.getElementById('scene-nav');
         sceneNav.innerHTML = `<button class="gufu-btn gufu-btn-primary" onclick="setNextScene('dot2_jigsaw')">进入点位二 (拼图)</button>`;
-    };
-    
+    }
+
     /**
      * 点位2：拼图复原门图 (简化为点击完成)
      */
